@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Created with Cambalache 0.96.1 -->
+<interface>
+  <!-- interface-name now_playing_panel.ui -->
+  <requires lib="gtk" version="4.18"/>
+  <requires lib="libadwaita" version="1.0"/>
+  <template class="NowPlayingPanel" parent="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="overflow">hidden</property>
+    <child>
+      <object class="AdwToolbarView">
+        <child type="top">
+          <object class="AdwHeaderBar">
+            <property name="show-back-button">False</property>
+            <property name="show-start-title-buttons">False</property>
+            <property name="show-title">False</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="css-classes">lyris-large-padding-container</property>
+            <property name="halign">center</property>
+            <property name="orientation">vertical</property>
+            <property name="valign">center</property>
+            <child>
+              <object class="AdwBin" id="album_art_container">
+                <property name="hexpand">True</property>
+                <property name="hexpand-set">True</property>
+                <property name="vexpand">True</property>
+                <property name="vexpand-set">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="halign">center</property>
+                <property name="hexpand">True</property>
+                <property name="hexpand-set">True</property>
+                <property name="orientation">vertical</property>
+                <property name="width-request">400</property>
+                <child>
+                  <object class="GtkBox" id="song_info_box">
+                    <property name="margin-start">9</property>
+                    <property name="orientation">vertical</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwBin" id="seek_bar_container"/>
+                </child>
+                <child>
+                  <object class="GtkBox">
+                    <property name="halign">center</property>
+                    <child>
+                      <object class="GtkButton" id="previous_button">
+                        <property name="css-classes">circular
+</property>
+                        <property name="height-request">48</property>
+                        <property name="icon-name">media-skip-backward</property>
+                        <property name="valign">center</property>
+                        <property name="width-request">48</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="play_pause_button">
+                        <property name="css-classes">pill
+suggested-action</property>
+                        <property name="height-request">64</property>
+                        <property name="icon-name">media-playback-start</property>
+                        <property name="margin-end">10</property>
+                        <property name="margin-start">10</property>
+                        <property name="valign">center</property>
+                        <property name="width-request">110</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="next_button">
+                        <property name="css-classes">circular</property>
+                        <property name="height-request">48</property>
+                        <property name="icon-name">media-skip-forward</property>
+                        <property name="valign">center</property>
+                        <property name="width-request">48</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkBox" id="bottom_container">
+                    <property name="halign">center</property>
+                    <property name="hexpand">True</property>
+                    <property name="margin-top">21</property>
+                    <property name="spacing">10</property>
+                    <property name="valign">center</property>
+                    <child>
+                      <object class="GtkToggleButton" id="hide_library_button">
+                        <property name="css-classes">circular</property>
+                        <property name="icon-name">arrows-pointing-outward-symbolic</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkToggleButton" id="repeat_button">
+                        <property name="css-classes">circular</property>
+                        <property name="icon-name">media-playlist-repeat-symbolic</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkBox">
+                        <property name="hexpand">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkToggleButton" id="shuffle_button">
+                        <property name="css-classes">circular</property>
+                        <property name="icon-name">media-playlist-shuffle-symbolic</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuButton" id="volume_control_button">
+                        <property name="css-classes">circular</property>
+                        <property name="icon-name">audio-volume-high</property>
+                        <property name="popover">
+                          <object class="GtkPopover">
+                            <property name="child">
+                              <object class="GtkBox">
+                                <child>
+                                  <object class="GtkScale">
+                                    <property name="adjustment">
+                                      <object class="GtkAdjustment" id="volume_control_adjustment">
+                                        <property name="step-increment">0.1</property>
+                                        <property name="upper">1.0</property>
+                                      </object>
+                                    </property>
+                                    <property name="hexpand">True</property>
+                                    <property name="hexpand-set">True</property>
+                                    <property name="width-request">236</property>
+                                  </object>
+                                </child>
+                              </object>
+                            </property>
+                          </object>
+                        </property>
+                      </object>
+                    </child>
+                    <style/>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

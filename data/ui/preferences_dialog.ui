@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Created with Cambalache 0.96.1 -->
+<interface>
+  <!-- interface-name preferences_dialog.ui -->
+  <requires lib="libadwaita" version="1.7"/>
+  <template class="PreferencesDialog" parent="AdwPreferencesDialog">
+    <property name="visible-page">ui_page</property>
+    <child>
+      <object class="AdwPreferencesPage" id="ui_page">
+        <property name="icon-name">object-packing-symbolic</property>
+        <property name="name">ui_page</property>
+        <property name="title">Interface</property>
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title">Background Blur</property>
+            <child>
+              <object class="AdwSwitchRow" id="background_blur_row">
+                <property name="subtitle">Disableing this option may improve performance on older hardware</property>
+                <property name="title">Enable Background Blur</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

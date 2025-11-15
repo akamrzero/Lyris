@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Created with Cambalache 0.96.1 -->
+<interface>
+  <!-- interface-name search_page_content.ui -->
+  <requires lib="gtk" version="4.18"/>
+  <requires lib="libadwaita" version="1.7"/>
+  <template class="SearchPageContent" parent="AdwBin">
+    <child>
+      <object class="GtkBox">
+        <property name="hexpand">True</property>
+        <property name="hexpand-set">True</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">12</property>
+        <property name="vexpand">True</property>
+        <property name="vexpand-set">True</property>
+        <child>
+          <object class="GtkEntry" id="entry">
+            <property name="activates-default">True</property>
+            <property name="enable-emoji-completion">True</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwWrapBox"/>
+        </child>
+        <child>
+          <object class="AdwWrapBox">
+            <property name="child-spacing">8</property>
+            <property name="line-spacing">8</property>
+            <child>
+              <object class="GtkToggleButton" id="all_toggle">
+                <property name="active">True</property>
+                <property name="label">All</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="songs_toggle">
+                <property name="group">all_toggle</property>
+                <property name="label">Songs</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="albums_toggle">
+                <property name="group">all_toggle</property>
+                <property name="label">Albums</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="artists_toggle">
+                <property name="group">all_toggle</property>
+                <property name="label">Artists</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="playlists_toggle">
+                <property name="group">all_toggle</property>
+                <property name="label">Playlists</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwBin" id="song_view_container">
+            <property name="hexpand">True</property>
+            <property name="hexpand-set">True</property>
+            <property name="vexpand">True</property>
+            <property name="vexpand-set">True</property>
+            <child>
+              <object class="AdwWrapBox"/>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

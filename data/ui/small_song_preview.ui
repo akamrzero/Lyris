@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Created with Cambalache 0.96.1 -->
+<interface>
+  <!-- interface-name small_song_preview.ui -->
+  <requires lib="gtk" version="4.18"/>
+  <requires lib="libadwaita" version="1.0"/>
+  <template class="SmallSongPreview" parent="AdwBin">
+    <property name="child">
+      <object class="GtkRevealer" id="revealer">
+        <property name="child">
+          <object class="AdwBin">
+            <property name="child">
+              <object class="GtkBox">
+                <property name="css-classes">lyris-card
+lyris-very-small-padding-container</property>
+                <property name="spacing">8</property>
+                <child>
+                  <object class="AdwBin" id="cover_container">
+                    <property name="css-classes">lyris-all-rounded-corners</property>
+                    <property name="halign">start</property>
+                    <property name="height-request">42</property>
+                    <property name="overflow">hidden</property>
+                    <property name="valign">center</property>
+                    <property name="width-request">42</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkBox" id="info_container">
+                    <property name="hexpand">True</property>
+                    <property name="hexpand-set">True</property>
+                    <property name="orientation">vertical</property>
+                    <property name="valign">center</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="play_pause_button">
+                    <property name="css-classes">circular
+suggested-action</property>
+                    <property name="icon-name">media-playback-start-symbolic</property>
+                    <property name="valign">center</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="next_button">
+                    <property name="css-classes">circular</property>
+                    <property name="icon-name">media-skip-forward-symbolic</property>
+                    <property name="valign">center</property>
+                  </object>
+                </child>
+              </object>
+            </property>
+            <property name="css-classes">view
+lyris-large-rounded-corners</property>
+            <property name="height-request">48</property>
+            <property name="overflow">hidden</property>
+          </object>
+        </property>
+        <property name="reveal-child">True</property>
+        <property name="transition-type">slide-up</property>
+      </object>
+    </property>
+    <property name="overflow">hidden</property>
+  </template>
+</interface>

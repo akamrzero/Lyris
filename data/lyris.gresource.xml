@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+
+    <gresource prefix="/com/github/akamrzero/lyris">
+        <file preprocess="xml-stripblanks" alias="now_playing_panel.ui">ui/now_playing_panel.ui</file>
+        <file preprocess="xml-stripblanks" alias="gtk/help-overlay.ui">ui/help-overlay.ui</file>
+        <file preprocess="xml-stripblanks" alias="viewstack_page.ui">ui/viewstack_page.ui</file>
+        <file preprocess="xml-stripblanks" alias="song_info_overlay.ui">ui/song_info_overlay.ui</file>
+        <file preprocess="xml-stripblanks" alias="tab_bar.ui">ui/tab_bar.ui</file>
+        <file preprocess="xml-stripblanks" alias="small_song_preview.ui">ui/small_song_preview.ui</file>
+        <file preprocess="xml-stripblanks" alias="main_menu.ui">ui/main_menu.ui</file>
+        <file preprocess="xml-stripblanks" alias="about_window.ui">ui/about_window.ui</file>
+        <file preprocess="xml-stripblanks" alias="search_page_content.ui">ui/search_page_content.ui</file>
+        <file preprocess="xml-stripblanks" alias="preferences_dialog.ui">ui/preferences_dialog.ui</file>
+
+        <file>style.css</file>
+
+        <file preprocess="xml-stripblanks" alias="icons/scalable/emblems/library-music-symbolic.svg">icons/hicolor/scalable/emblems/library-music-symbolic.svg</file>
+        <file preprocess="xml-stripblanks" alias="icons/scalable/emblems/library-artists-symbolic.svg">icons/hicolor/scalable/emblems/library-artists-symbolic.svg</file>
+        <file preprocess="xml-stripblanks" alias="icons/scalable/emblems/music-artist-symbolic.svg">icons/hicolor/scalable/emblems/music-artist-symbolic.svg</file>
+        <file preprocess="xml-stripblanks" alias="icons/scalable/emblems/music-note-symbolic.svg">icons/hicolor/scalable/emblems/music-note-symbolic.svg</file>
+        <file preprocess="xml-stripblanks" alias="icons/scalable/emblems/music-note-single-symbolic.svg">icons/hicolor/scalable/emblems/music-note-single-symbolic.svg</file>
+        <file preprocess="xml-stripblanks" alias="icons/scalable/emblems/music-queue-symbolic.svg">icons/hicolor/scalable/emblems/music-queue-symbolic.svg</file>
+        <file preprocess="xml-stripblanks" alias="icons/scalable/emblems/clock-alt-symbolic.svg">icons/hicolor/scalable/emblems/clock-alt-symbolic.svg</file>
+        <file preprocess="xml-stripblanks" alias="icons/scalable/emblems/person-symbolic.svg">icons/hicolor/scalable/emblems/person-symbolic.svg</file>
+        <file preprocess="xml-stripblanks" alias="icons/scalable/emblems/check-round-outline-symbolic.svg">icons/hicolor/scalable/emblems/check-round-outline-symbolic.svg</file>
+        <file preprocess="xml-stripblanks" alias="icons/scalable/emblems/object-packing-symbolic.svg">icons/hicolor/scalable/emblems/object-packing-symbolic.svg</file>
+        <file preprocess="xml-stripblanks" alias="icons/scalable/emblems/arrows-pointing-inward-symbolic.svg">icons/hicolor/scalable/emblems/arrows-pointing-inward-symbolic.svg</file>
+        <file preprocess="xml-stripblanks" alias="icons/scalable/emblems/arrows-pointing-outward-symbolic.svg">icons/hicolor/scalable/emblems/arrows-pointing-outward-symbolic.svg</file>
+
+    </gresource>
+</gresources>

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Created with Cambalache 0.96.1 -->
+<interface>
+  <!-- interface-name about_window.ui -->
+  <requires lib="libadwaita" version="1.5"/>
+  <object class="AdwAboutDialog" id="AboutWindow">
+    <property name="application-icon">com.github.akamrzero.lyris</property>
+    <property name="application-name">Lyris</property>
+    <property name="developers">akamrzero</property>
+    <property name="license-type">gpl-3-0</property>
+    <property name="version">0.0.1</property>
+  </object>
+</interface>

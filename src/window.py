@@ -1,0 +1,68 @@
+# window.py
+#
+# Copyright (C) 2025 akamrzero
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+from gi.repository import Adw
+from gi.repository import Gtk, Gio
+
+# from .widgets.playlists_view import PlaylistView
+from .widgets.now_playing_panel import NowPlayingPanel
+from .widgets.main_content import MainContent
+from .widgets.split_view import MyLeaflet
+
+class lyrisWindow(Adw.ApplicationWindow):
+    __gtype_name__ = 'lyrisWindow'
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.application = kwargs['application']
+
+
+
+        self.main_content = MainContent()
+
+        self.now_playing_panel = NowPlayingPanel()
+
+        self.leaflet = MyLeaflet(self.main_content, self.now_playing_panel, 390, 922)
+        self.set_content(self.leaflet)
+
+        self.set_size_request(390, 500)
+
+        settings = Gio.Settings.new('com.github.akamrzero.lyris')
+        width = settings.get_int('window-width')
+        height = settings.get_int('window-height')
+        self.set_default_size(width, height)
+
+        self.connect('close-request', self._on_close_request)
+
+    def _on_close_request(self, *args):
+        settings = settings = Gio.Settings.new('com.github.akamrzero.lyris')
+        settings.set_int('window-width', self.get_width())
+        settings.set_int('window-height', self.get_height())
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="lyris">
+    <schema id="com.github.akamrzero.lyris" path="/com/github/akamrzero/lyris/">
+        <key name="window-height" type="i">
+            <default>800</default>
+            <summary>Height of the main window</summary>
+            <description>
+                Stores the height of the main application window in pixels.
+                This value is used to restore the window size when the application is restarted.
+            </description>
+        </key>
+
+        <key name="window-width" type="i">
+            <default>1000</default>
+            <summary>Width of the main window</summary>
+            <description>
+                Stores the width of the main application window in pixels.
+                This value is used to restore the window size when the application is restarted.
+            </description>
+        </key>
+
+        <key name="last-opened-page" type="s">
+            <default>'home'</default>
+            <summary>Last opened page</summary>
+            <description>
+                Stores the identifier of the last page the user had open in the app
+                (for example: 'home', 'albums', 'artists', or 'settings').
+                This allows restoring the same page when the app is restarted.
+            </description>
+        </key>
+
+        <key name="hide-library" type="b">
+            <default>false</default>
+            <summary>Hide the library sidebar</summary>
+            <description>
+                If true, the library sidebar will be hidden in the UI.
+            </description>
+        </key>
+
+        <key name="queue-last-index" type="i">
+            <default>0</default>
+            <summary>Last index of the queue</summary>
+            <description>
+                Stores the index of the last played item in the playback queue.
+                This allows the player to resume playback from where it was left off.
+                The index starts at 0 for the first item in the queue.
+            </description>
+        </key>
+
+        <key name="queue-last-songs" type="as">
+            <default>[]</default>
+            <summary>Items of the queue</summary>
+            <description>
+                Contains the list of items currently in the playback queue.
+                Each item is represented as a string, typically a file path or URL.
+                This list is used to restore the queue after restarting the application.
+            </description>
+        </key>
+
+        <key name="queue-last-play-order" type="ai">
+            <default>[]</default>
+            <summary>Playorder of the queue</summary>
+            <description>
+                Contains the order in wich items in the queue will be played.
+                Each item in the play order represents an index of a song in the queue
+            </description>
+        </key>
+
+        <key name="queue-shuffle" type="b">
+            <default>false</default>
+            <summary>Whether the playback is shuffled or not</summary>
+            <description>
+                Boolean value indicating whether shuffle mode is enabled for the playback queue.
+                If true, items in the queue will be played in a random order instead of sequentially.
+            </description>
+        </key>
+
+        <key name="queue-loop" type="b">
+            <default>false</default>
+            <summary>Whether the current song is looped or not</summary>
+            <description>
+                Boolean value that determines if the currently playing item should repeat indefinitely.
+                If true, the player will loop the current song until the user disables this option.
+            </description>
+        </key>
+
+        <key name="background-blur" type="b">
+            <default>true</default>
+            <summary>Enable background blur</summary>
+            <description>
+                If enabled, the application will apply a blur effect to the background behind main content areas.
+                This can improve visual focus on the foreground content and create a modern, soft UI appearance.
+                Disable this option to render the background without blur, which may improve performance on lower-end
+                hardware.
+            </description>
+        </key>
+
+    </schema>
+</schemalist>

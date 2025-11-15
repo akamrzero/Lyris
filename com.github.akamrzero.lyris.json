@@ -1,0 +1,55 @@
+{
+  "id": "com.github.akamrzero.lyris",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "48",
+  "sdk": "org.gnome.Sdk",
+  "command": "lyris",
+  "finish-args": [
+    "--share=network",
+    "--share=ipc",
+    "--socket=fallback-x11",
+    "--device=dri",
+    "--socket=wayland",
+    "--socket=pulseaudio",
+    "--filesystem=xdg-music",
+    "--filesystem=home",
+    "--own-name=org.mpris.MediaPlayer2.lyris",
+    "--talk-name=org.mpris.MediaPlayer2.Player",
+    "--talk-name=org.freedesktop.DBus",
+    "--socket=session-bus"
+  ],
+  "cleanup": [
+    "/include",
+    "/lib/pkgconfig",
+    "/man",
+    "/share/doc",
+    "/share/gtk-doc",
+    "/share/man",
+    "/share/pkgconfig",
+    "*.la",
+    "*.a"
+  ],
+  "build-options": {
+    "env": {
+      "GDK_PIXBUF_MODULE_FILE": "/app/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache"
+    }
+  },
+  "modules": [
+    "python3-requirements.json",
+    {
+      "name": "lyris",
+      "builddir": true,
+      "buildsystem": "meson",
+      "sources": [
+        {
+          "type": "git",
+          "url": "file://.",
+          "branch": "main"
+        }
+      ],
+      "config-opts": [
+        "--libdir=lib"
+      ]
+    }
+  ]
+}

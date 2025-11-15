@@ -1,0 +1,8 @@
+# List of source files containing translatable strings.
+# Please keep this file sorted alphabetically.
+data/com.github.akamrzero.lyris.desktop.in
+data/com.github.akamrzero.lyris.metainfo.xml.in
+data/com.github.akamrzero.lyris.gschema.xml
+src/main.py
+src/window.py
+src/window.ui

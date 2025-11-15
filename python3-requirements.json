@@ -1,0 +1,40 @@
+{
+    "name": "python3-requirements",
+    "buildsystem": "simple",
+    "build-commands": [],
+    "modules": [
+        {
+            "name": "python3-peewee",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"peewee\" --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/04/89/76f6f1b744c8608e0d416b588b9d63c2a500ff800065ae610f7c80f532d6/peewee-3.18.2.tar.gz",
+                    "sha256": "77a54263eb61aff2ea72f63d2eeb91b140c25c1884148e28e4c0f7c4f64996a0"
+                }
+            ]
+        },
+        {
+            "name": "python3-pygobject",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pygobject\" --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/40/d9/412da520de9052b7e80bfc810ec10f5cb3dbfa4aa3e23c2820dc61cdb3d0/pycairo-1.28.0.tar.gz",
+                    "sha256": "26ec5c6126781eb167089a123919f87baa2740da2cca9098be8b3a6b91cc5fbc"
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/d3/a5/68f883df1d8442e3b267cb92105a4b2f0de819bd64ac9981c2d680d3f49f/pygobject-3.54.5.tar.gz",
+                    "sha256": "b6656f6348f5245606cf15ea48c384c7f05156c75ead206c1b246c80a22fb585"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Lyris
+Exec=lyris
+Icon=com.github.akamrzero.lyris
+Terminal=false
+Type=Application
+Categories=Utility;
+Keywords=GTK;
+StartupNotify=true
+DBusActivatable=true

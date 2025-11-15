@@ -1,0 +1,4 @@
+peewee
+pygobject
+flatpak-pip-generator
+pygobject-stubs

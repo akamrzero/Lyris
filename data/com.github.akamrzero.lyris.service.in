@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=com.github.akamrzero.lyris
+Exec=@bindir@/lyris --gapplication-service

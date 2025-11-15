@@ -1,0 +1,111 @@
+.lyris-large-padding-container {
+    padding: 24px;
+}
+
+.lyris-small-padding-container {
+    padding: 12px;
+}
+
+.lyris-very-small-padding-container {
+    padding: 8px;
+}
+
+.lyris-small-rounded-corners {
+    border-radius: 6px;
+}
+
+.lyris-medium-rounded-corners {
+    border-radius: 12px;
+}
+
+.lyris-large-rounded-corners {
+    border-radius: 24px;
+}
+
+.lyris-28-px-rounded-corners {
+    border-radius: 28px;
+}
+
+.lyris-all-rounded-corners {
+    border-radius: 50%;
+}
+
+.circular-image {
+    border-radius: 200px;
+}
+
+.lyris-title-big {
+    font-size: 82px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+
+.lyris-list {
+    background: transparent;
+}
+
+.lyris-list > * {
+    border-radius: 12px;
+}
+
+
+.lyris-item-row {
+    padding: 8px;
+    box-shadow: None;
+
+}
+
+.lyris-linked-buttons > * {
+    border-radius: 12px;
+}
+.lyris-linked-buttons > :first-child {
+    border-radius: 24px 12px 12px 24px;
+}
+.lyris-linked-buttons > :last-child {
+    border-radius: 12px 24px 24px 12px;
+}
+
+.lyris-tab-bar-corner-radius {
+    border-radius: 24px;
+}
+
+.lyris-card {
+    background: alpha(@accent_bg_color, 0.1);
+}
+
+.lyris-accent-bg-2 {
+    background: alpha(@accent_bg_color, 0.2);
+}
+
+.lyris-hovering-nav-bar-wrapper {
+    border-radius: 24px;
+    min-height: 48px;
+}
+
+
+.lyris-navbar-button {
+    min-width: 48px;
+    border-radius: 8px;
+}
+
+.lyris-navbar-first-button {
+    border-radius: 16px 8px 8px 16px;
+}
+
+.lyris-navbar-last-button {
+    border-radius: 8px 16px 16px 8px;
+}
+
+.lyris-listbox-item-padding > * {
+    padding: 8px;
+}
+
+.lyris-filter-toggle {
+    border-radius: 9999px;
+}
+
+.lyris-filter-toggle:checked {
+    background: @accent_bg_color;
+    color: @accent_fg_color;
+}

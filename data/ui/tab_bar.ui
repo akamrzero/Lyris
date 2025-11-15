@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Created with Cambalache 0.96.1 -->
+<interface>
+  <!-- interface-name tab_bar.ui -->
+  <requires lib="gtk" version="4.18"/>
+  <requires lib="libadwaita" version="1.0"/>
+  <template class="TabBar" parent="AdwBin">
+    <property name="height-request">68</property>
+    <property name="overflow">hidden</property>
+    <property name="valign">center</property>
+    <child>
+      <object class="AdwBin">
+        <property name="css-classes">view</property>
+        <property name="overflow">hidden</property>
+        <child>
+          <object class="AdwBin">
+            <property name="child">
+              <object class="GtkBox" id="content">
+                <property name="css-classes">lyris-very-small-padding-container</property>
+                <property name="spacing">6</property>
+              </object>
+            </property>
+            <property name="overflow">hidden</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>
