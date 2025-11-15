@@ -25,6 +25,7 @@ from gi.repository import GObject, Gio, GLib
 from .models.playlist import Playlist
 from .utils.event_bus import GEB
 from .utils.db_manager import DBM
+from .utils.gsettings import gsettings
 
 
 class Queue(GObject.GObject):
@@ -47,24 +48,24 @@ class Queue(GObject.GObject):
             return
         self._initialized = True
 
-        self._gsettings = Gio.Settings.new('com.github.akamrzero.lyris')
-        if self._gsettings.get_strv('queue-last-songs'):
-            self._songs = self._gsettings.get_strv('queue-last-songs')
+        # self._gsettings = Gio.Settings.new('com.github.akamrzero.Lyris')
+        if gsettings.queue_last_songs:
+            self._songs = gsettings.queue_last_songs
             for song in self._songs:
                 if not DBM.song.get_for_id(song):
                     self._songs.remove(song)
         else:
             self._songs= []
 
-        if self._gsettings.get_int('queue-last-index'):
-            index = self._gsettings.get_int('queue-last-index')
+        if gsettings.queue_last_index:
+            index = gsettings.queue_last_index
             if len(self._songs) > index:
                 self._current_index = index
         else:
             self._current_index: int = 0
 
-        if self._gsettings.get_value('queue-last-play-order'):
-            play_order = self._gsettings.get_value('queue-last-play-order').unpack()
+        if gsettings.queue_last_play_order:
+            play_order = gsettings.queue_last_play_order
             if len(play_order) == len(self._songs):
                 self._play_order = play_order
             else:
@@ -72,13 +73,13 @@ class Queue(GObject.GObject):
         else:
             self._play_order = []
 
-        if self._gsettings.get_boolean('queue-shuffle'):
-            self._shuffle_playback: bool = self._gsettings.get_boolean('queue-shuffle-playback')
+        if gsettings.queue_shuffle:
+            self._shuffle_playback: bool = gsettings.queue_shuffle
         else:
             self._shuffle_playback: bool = False
 
-        if self._gsettings.get_boolean('queue-loop'):
-            self._loop_current: bool = self._gsettings.get_boolean('queue-loop-current')
+        if gsettings.queue_loop:
+            self._loop_current: bool = gsettings.queue_loop
         else:
             self._loop_current: bool = False
 
@@ -122,8 +123,8 @@ class Queue(GObject.GObject):
         self._set_play_order(update_gsettings)
 
         if update_gsettings:
-            self._gsettings.set_strv('queue-last-songs', self._songs)
-            self._gsettings.set_int('queue-last-index', self._current_index)
+            gsettings.queue_last_songs = self._songs
+            gsettings.queue_last_index = self._current_index
 
 
     def add_song_batch(self, songs: list, replace_upcoming: bool=True, play_id: str=None):
@@ -157,8 +158,8 @@ class Queue(GObject.GObject):
 
         self._set_play_order()
 
-        self._gsettings.set_strv('queue-last-songs', self._songs)
-        self._gsettings.set_int('queue-last-index', self._current_index)
+        gsettings.queue_last_songs = self._songs
+        gsettings.queue_last_index = self._current_index
 
     def remove_song_id(self, song_id: str):
         """
@@ -170,9 +171,8 @@ class Queue(GObject.GObject):
         """
         self._songs.remove(song_id)
 
-
-        self._gsettings.set_strv('queue-last-songs', self._songs)
-        self._gsettings.set_int('queue-last-index', self._current_index)
+        gsettings.queue_last_songs = self._songs
+        gsettings.queue_last_index = self._current_index
 
     def clear_songs(self, only_history=False, only_upcoming=True):
         """
@@ -188,9 +188,8 @@ class Queue(GObject.GObject):
         else:
             self._songs = []
 
-
-        self._gsettings.set_strv('queue-last-items', self._songs)
-        self._gsettings.set_int('queue-last-index', self._current_index)
+        gsettings.queue_last_songs = self._songs
+        gsettings.queue_last_index = self._current_index
 
     def _set_play_order(self, update_gsettings: bool = True):
         """Recompute self._play_order safely and keep current song when possible.
@@ -203,7 +202,7 @@ class Queue(GObject.GObject):
             self._play_order = []
             self._current_index = 0
             if update_gsettings:
-                self._gsettings.set_value('queue-last-play-order', GLib.Variant('ai', self._play_order))
+                gsettings.queue_last_play_order = self._play_order
             return
 
         # try to figure out which song (index in self._songs) is currently playing
@@ -257,9 +256,9 @@ class Queue(GObject.GObject):
 
         # persist
         if update_gsettings:
-            self._gsettings.set_value('queue-last-play-order', GLib.Variant('ai', self._play_order))
-            self._gsettings.set_strv('queue-last-songs', self._songs)
-            self._gsettings.set_int('queue-last-index', self._current_index)
+            gsettings.queue_last_play_order = self._play_order
+            gsettings.queue_last_songs = self._songs
+            gsettings.queue_last_index = self._current_index
 
     def next_song(self):
         """
@@ -275,7 +274,7 @@ class Queue(GObject.GObject):
         if self._current_index < len(self._play_order) -1:
             self._current_index += 1
             self._emit_track_changed_signal()
-            self._gsettings.set_int('queue-last-index', self._current_index)
+            gsettings.queue_last_index = self._current_index
             return True
         return False
 
@@ -287,7 +286,7 @@ class Queue(GObject.GObject):
         if self._current_index > 0 and self._songs:
             self._current_index -= 1
             self._emit_track_changed_signal()
-            self._gsettings.set_int('queue-last-index', self._current_index)
+            gsettings.queue_last_index = self._current_index
             return True
         return False
 
@@ -304,8 +303,8 @@ class Queue(GObject.GObject):
             song = self._songs.pop(index)
             self._songs.insert(self._current_index, song)
             self.next_song()
-            self._gsettings.set_strv('queue-last-songs', self._songs)
-            self._gsettings.set_int('queue-last-index', self._current_index)
+            gsettings.queue_last_songs = self._songs
+            gsettings.queue_last_index = self._current_index
         else:
             raise ValueError(f"Song id {song_id} doesn't exist")
 

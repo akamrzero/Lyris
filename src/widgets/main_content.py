@@ -14,6 +14,7 @@ from src.widgets.search_page import SearchPage
 
 from .app_state import app_state
 from .home_page import HomePage
+from ..utils.gsettings import gsettings
 
 gi.require_version('Gtk', '4.0')
 from gi.repository import Gtk, Adw, GObject, Gio
@@ -91,8 +92,7 @@ class MainContent(Adw.Bin):
         self._view.set_main_child(self.pages[page_name])
         self._bottom_navbar.select_item(page_name)
 
-        settings = Gio.Settings.new('com.github.akamrzero.lyris')
-        settings.set_string('last-opened-page', page_name)
+        gsettings.last_opened_page = page_name
 
 
 
@@ -160,8 +160,7 @@ class MainContent(Adw.Bin):
         self._song_info_overlay.show_info(False)
 
     def open_last_page(self):
-        settings = Gio.Settings.new('com.github.akamrzero.lyris')
-        page = settings.get_string('last-opened-page')
+        page = gsettings.last_opened_page
         print(page)
         self.on_navigate(None, page)
 

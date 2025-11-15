@@ -1,4 +1,4 @@
-application_id = 'com.github.akamrzero.lyris'
+application_id = 'com.github.akamrzero.Lyris'
 
 scalable_dir = 'hicolor' / 'scalable' / 'apps'
 install_data(

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist gettext-domain="lyris">
-    <schema id="com.github.akamrzero.lyris" path="/com/github/akamrzero/lyris/">
+    <schema id="com.github.akamrzero.Lyris" path="/com/github/akamrzero/lyris/">
         <key name="window-height" type="i">
             <default>800</default>
             <summary>Height of the main window</summary>

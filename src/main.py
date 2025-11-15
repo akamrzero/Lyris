@@ -49,14 +49,14 @@ class LyrisApplication(Adw.Application):
     """The main application singleton class."""
 
     def __init__(self):
-        super().__init__(application_id='com.github.akamrzero.lyris',
+        super().__init__(application_id='com.github.akamrzero.Lyris',
                          flags=Gio.ApplicationFlags.DEFAULT_FLAGS,
                          resource_base_path='/com/github/akamrzero/lyris')
 
         GLib.set_application_name(_('Lyris'))
 
         init_db(Artist, Album, Playlist, Song, PlaylistSong)
-        index_folder(DBM, '/home/julius/testmusic')# GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_MUSIC))
+        index_folder(DBM, GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_MUSIC))
 
         # self.library = Library(GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_MUSIC))
 

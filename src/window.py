@@ -20,6 +20,7 @@
 from gi.repository import Adw
 from gi.repository import Gtk, Gio
 
+from .utils.gsettings import gsettings
 # from .widgets.playlists_view import PlaylistView
 from .widgets.now_playing_panel import NowPlayingPanel
 from .widgets.main_content import MainContent
@@ -43,17 +44,14 @@ class lyrisWindow(Adw.ApplicationWindow):
 
         self.set_size_request(390, 500)
 
-        settings = Gio.Settings.new('com.github.akamrzero.lyris')
-        width = settings.get_int('window-width')
-        height = settings.get_int('window-height')
-        self.set_default_size(width, height)
+
+        self.set_default_size(gsettings.window_width, gsettings.window_height)
 
         self.connect('close-request', self._on_close_request)
 
     def _on_close_request(self, *args):
-        settings = settings = Gio.Settings.new('com.github.akamrzero.lyris')
-        settings.set_int('window-width', self.get_width())
-        settings.set_int('window-height', self.get_height())
+        gsettings.window_width = self.get_width()
+        gsettings.window_height = self.get_height()
 
 
 

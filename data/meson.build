@@ -1,6 +1,6 @@
 desktop_file = i18n.merge_file(
-        input: 'com.github.akamrzero.lyris.desktop.in',
-       output: 'com.github.akamrzero.lyris.desktop',
+        input: 'com.github.akamrzero.Lyris.desktop.in',
+       output: 'com.github.akamrzero.Lyris.desktop',
          type: 'desktop',
        po_dir: '../po',
       install: true,
@@ -13,8 +13,8 @@ if desktop_utils.found()
 endif
 
 appstream_file = i18n.merge_file(
-        input: 'com.github.akamrzero.lyris.metainfo.xml.in',
-       output: 'com.github.akamrzero.lyris.metainfo.xml',
+        input: 'com.github.akamrzero.Lyris.metainfo.xml.in',
+       output: 'com.github.akamrzero.Lyris.metainfo.xml',
        po_dir: '../po',
       install: true,
   install_dir: get_option('datadir') / 'metainfo'
@@ -24,7 +24,7 @@ appstreamcli = find_program('appstreamcli', required: false, disabler: true)
 test('Validate appstream file', appstreamcli,
      args: ['validate', '--no-net', '--explain', appstream_file])
 
-install_data('com.github.akamrzero.lyris.gschema.xml',
+install_data('com.github.akamrzero.Lyris.gschema.xml',
   install_dir: get_option('datadir') / 'glib-2.0' / 'schemas'
 )
 
@@ -37,8 +37,8 @@ test('Validate schema file',
 service_conf = configuration_data()
 service_conf.set('bindir', get_option('prefix') / get_option('bindir'))
 configure_file(
-  input: 'com.github.akamrzero.lyris.service.in',
-  output: 'com.github.akamrzero.lyris.service',
+  input: 'com.github.akamrzero.Lyris.service.in',
+  output: 'com.github.akamrzero.Lyris.service',
   configuration: service_conf,
   install_dir: get_option('datadir') / 'dbus-1' / 'services'
 )
@@ -47,7 +47,7 @@ pkgdatadir = get_option('prefix') / get_option('datadir') / meson.project_name()
 moduledir = pkgdatadir / 'lyris'
 gnome = import('gnome')
 gnome.compile_resources('lyris',
-  'lyris.gresource.xml',
+  'Lyris.gresource.xml',
   gresource_bundle: true,
   install: true,
   install_dir: pkgdatadir,

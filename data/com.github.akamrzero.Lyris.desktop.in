@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Lyris
 Exec=lyris
-Icon=com.github.akamrzero.lyris
+Icon=com.github.akamrzero.Lyris
 Terminal=false
 Type=Application
 Categories=Utility;

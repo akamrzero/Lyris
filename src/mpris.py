@@ -226,7 +226,7 @@ class MPRIS(Server):
         elif property_name == 'Identity':
             return GLib.Variant('s', 'lyris')
         elif property_name == 'DesktopEntry':
-            return GLib.Variant('s', 'com.github.akamrzero.lyris')
+            return GLib.Variant('s', 'com.github.akamrzero.Lyris')
         elif property_name == 'PlaybackStatus':
             return GLib.Variant('s', self._get_status())
         elif property_name == 'Metadata':

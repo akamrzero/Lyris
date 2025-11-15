@@ -1,5 +1,6 @@
 import gi
 
+from src.utils.gsettings import gsettings
 from src.widgets.app_state import app_state
 
 gi.require_version('Gtk', '4.0')
@@ -15,11 +16,9 @@ class PreferencesDialog(Adw.PreferencesDialog):
     def __init__(self):
         super().__init__()
 
-        self._gsettings = Gio.Settings.new('com.github.akamrzero.lyris')
 
         self.background_blur_row.connect('notify::active', self.on_background_blur_toggled)
-
-        self.background_blur_row.set_active(self._gsettings.get_boolean('background-blur'))
+        self.background_blur_row.set_active(gsettings.background_blur)
 
 
     def on_background_blur_toggled(self, widget, state):

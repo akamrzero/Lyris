@@ -168,16 +168,20 @@ class MyLeaflet(Gtk.Widget):
                     self.snapshot_child(child, snapshot)
 
     def update_bg_cover(self):
-        if Queue().get_current_song_id():
-            cover = get_medium_pixbuf_cover(DBM.song.get_for_id(Queue().get_current_song_id()).medium_cover_file)
-            if cover:
-                texture = Gdk.Texture.new_for_pixbuf(cover)
-                self.blur_paintable = BlurPaintable(texture, blur_radius=102, opacity=0.25)
+        current_song_id = Queue().get_current_song_id()
+        if not current_song_id:
+            return
 
-    # def get_blur_mode(self):
-    #     gsettings = Gio.Settings.new('com.github.akamrzero.lyris')
-    #     blur_mode = gsettings.get_boolean('background-blur')
-    #     return blur_mode
+        song = DBM.song.get_for_id(current_song_id)
+        if not song:
+            return
+
+        cover = get_medium_pixbuf_cover(song.medium_cover_file)
+        if not cover:
+            return
+
+        texture = Gdk.Texture.new_for_pixbuf(cover)
+        self.blur_paintable = BlurPaintable(texture, blur_radius=102, opacity=0.25)
 
     def update_hide_library(self):
         if self.hide_library != app_state.hide_library:
