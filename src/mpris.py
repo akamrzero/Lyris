@@ -224,7 +224,7 @@ class MPRIS(Server):
         elif property_name == 'CanGoPrevious':
             return GLib.Variant('b', True)  # Todo
         elif property_name == 'Identity':
-            return GLib.Variant('s', 'lyris')
+            return GLib.Variant('s', 'Lyris')
         elif property_name == 'DesktopEntry':
             return GLib.Variant('s', 'com.github.akamrzero.Lyris')
         elif property_name == 'PlaybackStatus':
