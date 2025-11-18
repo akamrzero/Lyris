@@ -3,10 +3,8 @@ gi.require_version('Gtk', '4.0')
 from gi.repository import Gtk
 from typing import Callable
 
-from src.queue import Queue
 from src.utils.db_manager import DBM
 from src.utils.event_bus import GEB
-from src.utils.get_cached_cover import get_small_pixbuf_cover
 from src.widgets.album_art import AlbumArt
 from src.widgets.entitys.entity_item_row import EntityItemRow
 from src.widgets.entitys.entity_item_view import EntityItemView

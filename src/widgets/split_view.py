@@ -1,10 +1,9 @@
 import gi
 
 from .paintables.blur_paintable import BlurPaintable
-from ..audioplayer import AudioPlayer
 from ..queue import Queue
 from ..utils.db_manager import DBM
-from ..utils.get_cached_cover import get_medium_pixbuf_cover
+from ..utils.get_cached_cover import get_cached_cover, CoverSize
 
 gi.require_version('Gtk', '4.0')
 from gi.repository import Gtk, GObject, Gdk, Gsk, GdkPixbuf, Graphene
@@ -176,10 +175,9 @@ class MyLeaflet(Gtk.Widget):
         if not song:
             return
 
-        cover = get_medium_pixbuf_cover(song.medium_cover_file)
+        cover = get_cached_cover(song.cover_base_filename, CoverSize.small)
         if not cover:
             return
-
         texture = Gdk.Texture.new_for_pixbuf(cover)
         self.blur_paintable = BlurPaintable(texture, blur_radius=102, opacity=0.25)
 

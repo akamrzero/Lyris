@@ -1,4 +1,7 @@
+flatpak-pip-generator
+pybind11
 peewee
 pygobject
-flatpak-pip-generator
 pygobject-stubs
+mutagen
+pillow

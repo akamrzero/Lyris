@@ -21,6 +21,8 @@ import sys
 import gi
 import peewee
 
+from .utils.media_indexer import media_indexer
+from .utils.mediastore import media_store
 
 gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
@@ -56,7 +58,10 @@ class LyrisApplication(Adw.Application):
         GLib.set_application_name(_('Lyris'))
 
         init_db(Artist, Album, Playlist, Song, PlaylistSong)
-        index_folder(DBM, GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_MUSIC))
+        # index_folder(DBM, GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_MUSIC))
+        media_store.add_folder(GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_MUSIC))
+        print(media_store.folders)
+        media_indexer.index()
 
         # self.library = Library(GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_MUSIC))
 

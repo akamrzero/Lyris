@@ -101,10 +101,7 @@ class NowPlayingPanel(Gtk.Box):
         self.title_label.set_text(song.name)
         self.artist_label.set_text(song.artist.name if song.artist else 'Unknown Artist')
         self.combined_album_art.set_album_art(AlbumArt(250, covers=[get_cover_image(song.file_path)]))
-        self.seek_bar.duration = song.length
-
-    def on_playback_progress(self, _, progress):
-        self.seek_bar.value = progress
+        self.seek_bar.duration = song.length * 1_000
 
     def connect_local_signals(self):
         self.play_pause_button.connect('clicked', lambda _: AudioPlayer().toggle_playback())

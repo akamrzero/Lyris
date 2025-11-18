@@ -57,12 +57,10 @@ class Queue(GObject.GObject):
         else:
             self._songs= []
 
-        if gsettings.queue_last_index:
-            index = gsettings.queue_last_index
-            if len(self._songs) > index:
-                self._current_index = index
+        if gsettings.queue_last_index is not None and len(self._songs) > gsettings.queue_last_index:
+            self._current_index = gsettings.queue_last_index
         else:
-            self._current_index: int = 0
+            self._current_index = 0
 
         if gsettings.queue_last_play_order:
             play_order = gsettings.queue_last_play_order

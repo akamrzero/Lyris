@@ -14,6 +14,4 @@ class Song(BaseModel):
     album = ForeignKeyField(Album, backref='songs', null=True)
     file_path = CharField(unique=True)
     length = IntegerField()
-    small_cover_file = CharField(max_length=200, null=True)
-    medium_cover_file = CharField(max_length=200, null=True)
-    large_cover_file = CharField(max_length=200, null=True)
+    cover_base_filename = CharField(max_length=200, null=True)

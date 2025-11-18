@@ -11,7 +11,7 @@ from gi.repository import Gtk, Adw, Gst
 from src.utils.db_manager import DBM
 from src.queue import Queue
 from src.widgets.entitys.entity_item_row import EntityItemRow
-from src.utils.get_cached_cover import get_small_pixbuf_cover
+from src.utils.get_cached_cover import get_cached_cover, CoverSize
 from src.widgets.playing_eq_icon import PlayingEqIcon
 from src.utils.event_bus import GEB
 from src.widgets.album_art import AlbumArt
@@ -55,7 +55,7 @@ class SongViewItem(EntityItemRow):
         self.connect_signals()
 
     def set_song_cover(self):
-        album_art = AlbumArt(56, covers=[get_small_pixbuf_cover(self.song.small_cover_file)])
+        album_art = AlbumArt(56, covers=[get_cached_cover(self.song.cover_base_filename, CoverSize.small)])
         self.start_widget = album_art
 
     def set_title(self):

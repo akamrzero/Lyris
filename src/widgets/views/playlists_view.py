@@ -1,5 +1,5 @@
 from typing import Callable
-from src.utils.get_cached_cover import get_small_pixbuf_cover
+from src.utils.get_cached_cover import get_cached_cover, CoverSize
 from src.utils.time_converter import ms_to_readable
 from src.widgets.album_art import AlbumArt
 from src.widgets.entitys.entity_item_row import EntityItemRow
@@ -52,14 +52,19 @@ class PlaylistViewItem(EntityItemRow):
 
     def set_start_widget(self):
         covers = []
+        max_iterations = 25
         i = 0
         songs = DBM.playlist.get_songs(self.playlist)
-        while len(covers) < 4:
-            cover = get_small_pixbuf_cover(songs[i].small_cover_file)
-            if cover:
-                covers.append(cover)
+        while len(covers) < 4 and max_iterations > 0:
+            try:
+                cover = get_cached_cover(songs[i].cover_base_filename, CoverSize.small)
+                if cover:
+                    covers.append(cover)
 
-            i += 1
+                i += 1
+            except IndexError:
+                pass
+            max_iterations -= 1
 
         start_widget = AlbumArt(56, covers=covers)
 

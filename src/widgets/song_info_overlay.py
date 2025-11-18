@@ -9,7 +9,8 @@ from gi.repository import Gtk, Adw, Gio, Gdk, GObject, GLib
 from ..utils.time_converter import *
 from ..utils.event_bus import GEB
 from ..utils.db_manager import DBM
-from ..utils.get_cached_cover import get_large_pixbuf_cover
+from ..utils.get_cached_cover import get_cached_cover, CoverSize
+
 
 @Gtk.Template(resource_path='/com/github/akamrzero/lyris/song_info_overlay.ui')
 class SongInfoOverlay(Adw.Bin):
@@ -65,5 +66,5 @@ class SongInfoOverlay(Adw.Bin):
         self.album_label.set_subtitle(song_album)
         self.artist_label.set_subtitle(song_artist)
 
-        image = AlbumArt(90, covers=[get_large_pixbuf_cover(DBM.song.get_for_id(self._current_song_id).large_cover_file)])
+        image = AlbumArt(90, covers=[get_cached_cover(DBM.song.get_for_id(self._current_song_id).cover_base_filename, CoverSize.large)])
         self.album_art_img_container.set_child(image)

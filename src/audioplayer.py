@@ -168,7 +168,7 @@ class AudioPlayer(GObject.GObject):
         return True
 
     def on_position_seeked(self, _, position):
-        self.pipeline.seek_simple(Gst.Format.TIME,  Gst.SeekFlags.FLUSH | Gst.SeekFlags.KEY_UNIT, position*1000000)
+        self.pipeline.seek_simple(Gst.Format.TIME,  Gst.SeekFlags.FLUSH | Gst.SeekFlags.KEY_UNIT, position*1_000_000)
 
     # global signals
     def on_toggle_playback_request(self, bus):

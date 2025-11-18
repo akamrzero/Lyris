@@ -27,18 +27,12 @@ class DBManager:
             return Artist.select().where(Artist.name.contains(query))
 
     class _Album:
-        def add(self, name, artist, color_str=None):
+        def add(self, name, artist):
             """Adds an album to the DB"""
             album, created = Album.get_or_create(
                 name=name,
                 artist=artist,
-                defaults={'dominant_cover_color': color_str}
             )
-
-            if not created and color_str is not None:
-                if album.dominant_cover_color != color_str:
-                    album.dominant_cover_color = color_str
-                    album.save()
 
             return album, created
 
@@ -62,8 +56,7 @@ class DBManager:
             return Album.select().where(Album.name.contains(query))
 
     class _Songs:
-        def add(self, song_id, name, artist, album, file_path, length, small_cover_file, medium_cover_file,
-                     large_cover_file):
+        def add(self, song_id, name, artist, album, file_path, length, cover_base_filename):
             """Adds a song to the DB"""
             song, created = Song.get_or_create(
                 file_path=file_path,
@@ -73,9 +66,7 @@ class DBManager:
                     'artist': artist,
                     'album': album,
                     'length': length,
-                    'small_cover_file': small_cover_file,
-                    'medium_cover_file': medium_cover_file,
-                    'large_cover_file': large_cover_file,
+                    'cover_base_filename': cover_base_filename
                 }
             )
 
@@ -94,14 +85,8 @@ class DBManager:
                 if song.length != length:
                     song.length = length
                     changed = True
-                if song.small_cover_file != small_cover_file:
-                    song.small_cover_file = small_cover_file
-                    changed = True
-                if song.medium_cover_file != medium_cover_file:
-                    song.medium_cover_file = medium_cover_file
-                    changed = True
-                if song.large_cover_file != large_cover_file:
-                    song.large_cover_file = large_cover_file
+                if song.cover_base_filename != cover_base_filename:
+                    song.cover_base_filename = cover_base_filename
                     changed = True
 
                 if changed:

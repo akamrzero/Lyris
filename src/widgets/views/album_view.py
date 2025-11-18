@@ -7,7 +7,7 @@ from typing import Callable
 
 from src.queue import Queue
 from src.utils.db_manager import DBM
-from src.utils.get_cached_cover import get_small_pixbuf_cover
+from src.utils.get_cached_cover import get_cached_cover, CoverSize
 from src.widgets.album_art import AlbumArt
 from src.widgets.entitys.entity_item_row import EntityItemRow
 from src.utils.event_bus import GEB
@@ -49,9 +49,9 @@ class AlbumViewItem(EntityItemRow):
     def set_start_widget(self):
         def get_filepath():
             song = DBM.song.get_for_album(self.album)[0]
-            return song.small_cover_file
+            return song.cover_base_filename
 
-        start_widget = AlbumArt(56, 'person-symbolic', [get_small_pixbuf_cover(get_filepath())])
+        start_widget = AlbumArt(56, 'person-symbolic', [get_cached_cover(get_filepath(), CoverSize.small)])
         start_widget.add_css_class('lyris-all-rounded-corners')
         start_widget.set_overflow(Gtk.Overflow.HIDDEN)
         self.start_widget = start_widget

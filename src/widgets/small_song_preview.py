@@ -10,7 +10,7 @@ from .marquee_label import MarqueeLabel
 from .album_art import AlbumArt
 from ..queue import Queue
 from ..utils.db_manager import DBM
-from ..utils.get_cached_cover import get_small_pixbuf_cover
+from ..utils.get_cached_cover import get_cached_cover, CoverSize
 
 @Gtk.Template(resource_path='/com/github/akamrzero/lyris/small_song_preview.ui')
 class SmallSongPreview(Adw.Bin):
@@ -58,7 +58,7 @@ class SmallSongPreview(Adw.Bin):
         self.set_play_pause_icon()
         self._title_label.set_text(song.name)
         self._artist_label.set_text(song.artist.name if song.artist else 'Unknown')
-        self.cover_container.set_child(AlbumArt(42, covers=[get_small_pixbuf_cover(song.small_cover_file)]))
+        self.cover_container.set_child(AlbumArt(42, covers=[get_cached_cover(song.cover_base_filename, CoverSize.small)]))
 
     def set_play_pause_icon(self):
         state = AudioPlayer().get_state()
