@@ -10,7 +10,6 @@
     <property name="valign">center</property>
     <child>
       <object class="AdwBin">
-        <property name="css-classes">view</property>
         <property name="overflow">hidden</property>
         <child>
           <object class="AdwBin">
