@@ -46,7 +46,10 @@ class BlurBackground(Gtk.Widget):
         if w <= 0 or h <= 0:
             return
 
-        self.update_bg_cover_if_needed()
+        try:
+            self.update_bg_cover_if_needed()
+        except IndexError as e:
+            print(e)
 
         if app_state.background_blur:
             if self.blur_paintable:
