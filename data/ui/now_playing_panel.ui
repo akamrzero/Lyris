@@ -14,6 +14,17 @@
             <property name="show-back-button">False</property>
             <property name="show-start-title-buttons">False</property>
             <property name="show-title">False</property>
+            <child type="start">
+              <object class="GtkToggleButton" id="hide_library_button">
+                <property name="css-classes">flat</property>
+                <property name="icon-name">arrows-pointing-outward-symbolic</property>
+              </object>
+            </child>
+            <child type="start">
+              <object class="GtkLabel">
+                <property name="label">Now Playing</property>
+              </object>
+            </child>
           </object>
         </child>
         <child>
@@ -21,7 +32,6 @@
             <property name="css-classes">lyris-large-padding-container</property>
             <property name="halign">center</property>
             <property name="orientation">vertical</property>
-            <property name="valign">center</property>
             <child>
               <object class="AdwBin" id="album_art_container">
                 <property name="hexpand">True</property>
@@ -84,37 +94,30 @@ suggested-action</property>
                 </child>
                 <child>
                   <object class="GtkBox" id="bottom_container">
+                    <property name="css-classes">card
+lyris-very-small-padding-container
+lyris-9999-rounded-corners</property>
                     <property name="halign">center</property>
+                    <property name="height-request">56</property>
                     <property name="hexpand">True</property>
                     <property name="margin-top">21</property>
-                    <property name="spacing">10</property>
+                    <property name="spacing">8</property>
                     <property name="valign">center</property>
                     <child>
-                      <object class="GtkToggleButton" id="hide_library_button">
-                        <property name="css-classes">circular</property>
-                        <property name="icon-name">arrows-pointing-outward-symbolic</property>
-                      </object>
-                    </child>
-                    <child>
                       <object class="GtkToggleButton" id="repeat_button">
-                        <property name="css-classes">circular</property>
+                        <property name="css-classes">pill</property>
                         <property name="icon-name">media-playlist-repeat-symbolic</property>
                       </object>
                     </child>
                     <child>
-                      <object class="GtkBox">
-                        <property name="hexpand">True</property>
-                      </object>
-                    </child>
-                    <child>
                       <object class="GtkToggleButton" id="shuffle_button">
-                        <property name="css-classes">circular</property>
+                        <property name="css-classes">pill</property>
                         <property name="icon-name">media-playlist-shuffle-symbolic</property>
                       </object>
                     </child>
                     <child>
                       <object class="GtkMenuButton" id="volume_control_button">
-                        <property name="css-classes">circular</property>
+                        <property name="css-classes">pill</property>
                         <property name="icon-name">audio-volume-high</property>
                         <property name="popover">
                           <object class="GtkPopover">

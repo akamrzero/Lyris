@@ -26,6 +26,10 @@
     border-radius: 28px;
 }
 
+.lyris-9999-rounded-corners {
+    border-radius: 9999px;
+}
+
 .lyris-all-rounded-corners {
     border-radius: 50%;
 }

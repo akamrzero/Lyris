@@ -129,7 +129,7 @@ class LyrisSplitView(Gtk.Widget):
             return
 
         if self.state == SplitViewState.DEFAULT:
-            rect = Graphene.Rect().init(self.default_split_position, 0, 0.5, h)
+            rect = Graphene.Rect().init(self.split_position, 0, 0.5, h)
             rect.normalize()
             colors_2 = [
                 gsk_color_stop(0.0, Gdk.RGBA(1, 1, 1, 0.0)),

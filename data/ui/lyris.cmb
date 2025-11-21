@@ -2,13 +2,13 @@
 <!DOCTYPE cambalache-project SYSTEM "cambalache-project.dtd">
 <!-- Created with Cambalache 0.96.1 -->
 <cambalache-project version="0.96.0" target_tk="gtk-4.0">
-  <ui template-class="NowPlayingPanel" filename="now_playing_panel.ui" sha256="214c679322bf142c9f42d8fab48c14451d3c1d28282c13e2f1039b0dbd282e84"/>
+  <ui template-class="NowPlayingPanel" filename="now_playing_panel.ui" sha256="eb187a70d7d71032d63150dcb285c0cb39a5dfe78b15b71f2169b31d380831b7"/>
   <ui template-class="ViewStackPage" filename="viewstack_page.ui" sha256="d5fd5d3b6b63d21ab789ec48735d52c11b7181a8b3c7de65781101b2f0751718"/>
   <ui template-class="SongInfoOverlay" filename="song_info_overlay.ui" sha256="2e85c1574a2ce0752a1060486e471346143b58b6cfbdb7a9b465c912e78c0752"/>
-  <ui template-class="TabBar" filename="tab_bar.ui" sha256="d3a7d58133f1e43a6547b9a5c50a7dafe22dcd9a09b812754626204e60f3dce7"/>
+  <ui template-class="TabBar" filename="tab_bar.ui" sha256="2583ca94d81276f3b523495f34bac4ce1f67098946fb1a7623470c1f20cecd3a"/>
   <ui template-class="SmallSongPreview" filename="small_song_preview.ui" sha256="c2fbd719fe35741764dd03da56965c8e2ec5a971c25998a17ad35fcd3fbb110d"/>
   <ui filename="main_menu.ui" sha256="83a81ba6c8b086898f237340905685635694ce92ecb5b81e8954092b64a6657d"/>
-  <ui filename="about_window.ui" sha256="f44f16406d8acc9d87f2ef9c37782a388bc34c9cbcfb7f21bf12c9104b402c40"/>
+  <ui filename="about_window.ui" sha256="6560203cce27af3ae7fff4183845efe1a3dffa872165ceee27a112a14887c6bf"/>
   <ui template-class="SearchPageContent" filename="search_page_content.ui" sha256="f78dbdcdf800e6291c1e79e10e049c7d8fef18d05e43fec4feda5376700a9e6f"/>
   <ui template-class="PreferencesDialog" filename="preferences_dialog.ui" sha256="0ad1a7f504367c42696ba25a993af2633e590457b31c62c2ddbacbbb17cf7c34"/>
 </cambalache-project>
