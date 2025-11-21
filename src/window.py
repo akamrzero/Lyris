@@ -21,6 +21,7 @@ from gi.repository import Adw
 from gi.repository import Gtk, Gio
 
 from .utils.gsettings import gsettings
+from .widgets.blur_background import BlurBackground
 # from .widgets.playlists_view import PlaylistView
 from .widgets.now_playing_panel import NowPlayingPanel
 from .widgets.main_content import MainContent
@@ -33,14 +34,16 @@ class LyrisWindow(Adw.ApplicationWindow):
         super().__init__(**kwargs)
         self.application = kwargs['application']
 
-
-
         self.main_content = MainContent()
 
         self.now_playing_panel = NowPlayingPanel()
 
-        self.leaflet = LyrisSplitView(self.main_content, self.now_playing_panel, 390, 922)
-        self.set_content(self.leaflet)
+        self.split_view = LyrisSplitView(self.main_content, self.now_playing_panel, 390, 922)
+
+        self.blur_background = BlurBackground(self.split_view)
+
+
+        self.set_content(self.blur_background)
 
         self.set_size_request(390, 500)
 

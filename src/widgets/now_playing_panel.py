@@ -119,7 +119,6 @@ class NowPlayingPanel(Gtk.Box):
         app_state.set_hide_library(self.hide_library_button.get_active())
 
     def on_hide_library_button_active_changed(self, *_):
-        print('niwuef')
         if self.hide_library_button.get_active():
             self.hide_library_button.set_icon_name('arrows-pointing-inward-symbolic')
         else:
