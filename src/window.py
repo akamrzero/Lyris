@@ -24,10 +24,10 @@ from .utils.gsettings import gsettings
 # from .widgets.playlists_view import PlaylistView
 from .widgets.now_playing_panel import NowPlayingPanel
 from .widgets.main_content import MainContent
-from .widgets.split_view import MyLeaflet
+from .widgets.split_view import LyrisSplitView
 
-class lyrisWindow(Adw.ApplicationWindow):
-    __gtype_name__ = 'lyrisWindow'
+class LyrisWindow(Adw.ApplicationWindow):
+    __gtype_name__ = 'LyrisWindow'
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -39,7 +39,7 @@ class lyrisWindow(Adw.ApplicationWindow):
 
         self.now_playing_panel = NowPlayingPanel()
 
-        self.leaflet = MyLeaflet(self.main_content, self.now_playing_panel, 390, 922)
+        self.leaflet = LyrisSplitView(self.main_content, self.now_playing_panel, 390, 922)
         self.set_content(self.leaflet)
 
         self.set_size_request(390, 500)

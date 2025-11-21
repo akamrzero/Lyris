@@ -28,7 +28,7 @@ gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
 
 from gi.repository import Gio, Adw, GLib, Gtk
-from .window import lyrisWindow
+from .window import LyrisWindow
 from .audioplayer import AudioPlayer
 # from .models.library import Library
 from .mpris import MPRIS
@@ -91,7 +91,7 @@ class LyrisApplication(Adw.Application):
         """
         self.win = self.props.active_window
         if not self.win:
-            self.win = lyrisWindow(application=self)
+            self.win = LyrisWindow(application=self)
 
         self.win.present()
 
