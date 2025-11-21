@@ -23,12 +23,13 @@ class BlurBackground(Gtk.Widget):
         self._old_width = None
         self._old_height = None
         self._old_blur_paintable = None
+        self._current_song_id = None
 
 
         if app_state:
             app_state.connect('notify::background-blur', lambda *_: self.queue_draw())
 
-        self.update_bg_cover()
+        self.update_bg_cover_if_needed()
 
 
     def do_size_allocate(self, width, height, baseline):
@@ -45,6 +46,8 @@ class BlurBackground(Gtk.Widget):
         if w <= 0 or h <= 0:
             return
 
+        self.update_bg_cover_if_needed()
+
         if app_state.background_blur:
             if self.blur_paintable:
                 self.blur_paintable.snapshot(snapshot, w, h)
@@ -57,9 +60,13 @@ class BlurBackground(Gtk.Widget):
 
 
 
-    def update_bg_cover(self):
+    def update_bg_cover_if_needed(self):
         current_song_id = Queue().get_current_song_id()
+
         if not current_song_id:
+            return
+
+        if self._current_song_id == current_song_id:
             return
 
         song = DBM.song.get_for_id(current_song_id)
@@ -71,4 +78,5 @@ class BlurBackground(Gtk.Widget):
             return
         texture = Gdk.Texture.new_for_pixbuf(cover)
         self.blur_paintable = BlurPaintable(texture, blur_radius=100, opacity=0.25)
+        self._current_song_id = current_song_id
 
