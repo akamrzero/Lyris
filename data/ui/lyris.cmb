@@ -2,7 +2,7 @@
 <!DOCTYPE cambalache-project SYSTEM "cambalache-project.dtd">
 <!-- Created with Cambalache 0.96.1 -->
 <cambalache-project version="0.96.0" target_tk="gtk-4.0">
-  <ui template-class="NowPlayingPanel" filename="now_playing_panel.ui" sha256="eb187a70d7d71032d63150dcb285c0cb39a5dfe78b15b71f2169b31d380831b7"/>
+  <ui template-class="NowPlayingPanel" filename="now_playing_panel.ui" sha256="98517d75abf4c1f03662da9537d36e45116e59290f355c6d8d4b27b1419ef26e"/>
   <ui template-class="ViewStackPage" filename="viewstack_page.ui" sha256="d5fd5d3b6b63d21ab789ec48735d52c11b7181a8b3c7de65781101b2f0751718"/>
   <ui template-class="SongInfoOverlay" filename="song_info_overlay.ui" sha256="2e85c1574a2ce0752a1060486e471346143b58b6cfbdb7a9b465c912e78c0752"/>
   <ui template-class="TabBar" filename="tab_bar.ui" sha256="2583ca94d81276f3b523495f34bac4ce1f67098946fb1a7623470c1f20cecd3a"/>

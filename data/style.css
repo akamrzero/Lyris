@@ -109,6 +109,25 @@
     border-radius: 9999px;
 }
 
+.lyris-button-box button {
+    border-radius: 8px;
+    min-width: 56px;
+    transition: 200ms ease-in-out;
+
+}
+
+.lyris-button-box button:checked {
+    border-radius: 24px;
+}
+
+.lyris-button-box > :first-child {
+    border-radius: 24px 8px 8px 24px;
+}
+
+.lyris-button-box > :last-child {
+    border-radius: 8px 24px 24px 8px;
+}
+
 .lyris-filter-toggle:checked {
     background: @accent_bg_color;
     color: @accent_fg_color;

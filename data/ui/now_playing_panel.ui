@@ -25,6 +25,12 @@
                 <property name="label">Now Playing</property>
               </object>
             </child>
+            <child type="end">
+              <object class="GtkMenuButton" id="volume_control_button">
+                <property name="icon-name">audio-volume-high</property>
+                <property name="popover">volume_popover</property>
+              </object>
+            </child>
           </object>
         </child>
         <child>
@@ -62,7 +68,7 @@
                     <child>
                       <object class="GtkButton" id="previous_button">
                         <property name="css-classes">circular
-</property>
+                        </property>
                         <property name="height-request">48</property>
                         <property name="icon-name">media-skip-backward</property>
                         <property name="valign">center</property>
@@ -72,7 +78,8 @@
                     <child>
                       <object class="GtkButton" id="play_pause_button">
                         <property name="css-classes">pill
-suggested-action</property>
+                          suggested-action
+                        </property>
                         <property name="height-request">64</property>
                         <property name="icon-name">media-playback-start</property>
                         <property name="margin-end">10</property>
@@ -96,53 +103,26 @@ suggested-action</property>
                   <object class="GtkBox" id="bottom_container">
                     <property name="css-classes">card
 lyris-very-small-padding-container
-lyris-9999-rounded-corners</property>
+lyris-9999-rounded-corners
+lyris-button-box
+                    </property>
                     <property name="halign">center</property>
                     <property name="height-request">56</property>
                     <property name="hexpand">True</property>
+                    <property name="homogeneous">True</property>
                     <property name="margin-top">21</property>
                     <property name="spacing">8</property>
                     <property name="valign">center</property>
                     <child>
                       <object class="GtkToggleButton" id="repeat_button">
-                        <property name="css-classes">pill</property>
                         <property name="icon-name">media-playlist-repeat-symbolic</property>
                       </object>
                     </child>
                     <child>
                       <object class="GtkToggleButton" id="shuffle_button">
-                        <property name="css-classes">pill</property>
                         <property name="icon-name">media-playlist-shuffle-symbolic</property>
                       </object>
                     </child>
-                    <child>
-                      <object class="GtkMenuButton" id="volume_control_button">
-                        <property name="css-classes">pill</property>
-                        <property name="icon-name">audio-volume-high</property>
-                        <property name="popover">
-                          <object class="GtkPopover">
-                            <property name="child">
-                              <object class="GtkBox">
-                                <child>
-                                  <object class="GtkScale">
-                                    <property name="adjustment">
-                                      <object class="GtkAdjustment" id="volume_control_adjustment">
-                                        <property name="step-increment">0.1</property>
-                                        <property name="upper">1.0</property>
-                                      </object>
-                                    </property>
-                                    <property name="hexpand">True</property>
-                                    <property name="hexpand-set">True</property>
-                                    <property name="width-request">236</property>
-                                  </object>
-                                </child>
-                              </object>
-                            </property>
-                          </object>
-                        </property>
-                      </object>
-                    </child>
-                    <style/>
                   </object>
                 </child>
               </object>
@@ -152,4 +132,23 @@ lyris-9999-rounded-corners</property>
       </object>
     </child>
   </template>
+  <object class="GtkPopover" id="volume_popover">
+    <property name="child">
+      <object class="GtkBox">
+        <child>
+          <object class="GtkScale">
+            <property name="adjustment">
+              <object class="GtkAdjustment" id="volume_control_adjustment">
+                <property name="step-increment">0.1</property>
+                <property name="upper">1.0</property>
+              </object>
+            </property>
+            <property name="hexpand">True</property>
+            <property name="hexpand-set">True</property>
+            <property name="width-request">236</property>
+          </object>
+        </child>
+      </object>
+    </property>
+  </object>
 </interface>
